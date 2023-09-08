@@ -15,7 +15,7 @@ def ChatModel():
                                                 model_type='llama',
                                                 temperature=0.6, 
                                                 top_p=0.9)
-chat_model =ChatModel(temperature, top_p)
+chat_model =ChatModel()
 # Replicate Credentials
 """
 with st.sidebar:
