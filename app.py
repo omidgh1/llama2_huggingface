@@ -1,19 +1,18 @@
 import streamlit as st
 import os
-from ctransformers import AutoModelForCausalLM
+#from ctransformers import AutoModelForCausalLM
 #from transformers import AutoModelForCausalLM
 
+from ctransformers import AutoModelForCausalLM, AutoTokenizer
 
+# Load your model from Hugging Face with authentication
+model_name = 'TheBloke/Llama-2-7B-Chat-GGML/llama-2-7b-chat.ggmlv3.q2_K'
 # App title
 st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
 
 @st.cache_resource()
 def ChatModel(temperature, top_p):
-    return AutoModelForCausalLM.from_pretrained(
-        'https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/resolve/main/llama-2-7b-chat.ggmlv3.q2_K.bin', 
-        model_type='llama',
-        temperature=temperature, 
-        top_p = top_p)
+    return AutoModelForCausalLM.from_pretrained(model_name)
 
 # Replicate Credentials
 with st.sidebar:
