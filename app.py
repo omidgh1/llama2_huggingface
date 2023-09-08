@@ -1,6 +1,8 @@
 import streamlit as st
 import os
 from ctransformers import AutoModelForCausalLM
+#from transformers import AutoModelForCausalLM
+
 
 # App title
 st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
@@ -8,7 +10,7 @@ st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
 @st.cache_resource()
 def ChatModel(temperature, top_p):
     return AutoModelForCausalLM.from_pretrained(
-        'ggml-llama-2-7b-chat-q4_0.bin', 
+        'https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/resolve/main/llama-2-7b-chat.ggmlv3.q2_K.bin', 
         model_type='llama',
         temperature=temperature, 
         top_p = top_p)
