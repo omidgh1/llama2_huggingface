@@ -1,6 +1,7 @@
 import streamlit as st
 import os
-from ctransformers import AutoModelForCausalLM
+#from ctransformers import AutoModelForCausalLM
+from transformers import AutoModelForCausalLM
 
 access_token = "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"
 # App title
