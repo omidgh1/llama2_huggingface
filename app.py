@@ -6,7 +6,7 @@ import os
 from ctransformers import AutoModelForCausalLM, AutoTokenizer
 
 # Load your model from Hugging Face with authentication
-model_name = 'TheBloke/Llama-2-7B-Chat-GGML/llama-2-7b-chat.ggmlv3.q2_K'
+model_name = 'TheBloke/Llama-2-7B-Chat-GGML'
 # App title
 st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
 
