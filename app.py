@@ -10,11 +10,10 @@ st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
 @st.cache_resource()
 def ChatModel(temperature, top_p):
     return AutoModelForCausalLM.from_pretrained(
-        'ggml-llama-2-7b-chat-q4_0.bin', 
-        model_type='llama',
-        token=access_token,
-        temperature=temperature, 
-        top_p = top_p)
+    "meta-llama/Llama-2-7b-chat-hf",
+    token=access_token)
+        #temperature=temperature, 
+        #top_p = top_p)
 
 # Replicate Credentials
 with st.sidebar:
