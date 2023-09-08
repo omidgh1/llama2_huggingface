@@ -1,6 +1,5 @@
 import streamlit as st
 import os
-#from ctransformers import AutoModelForCausalLM
 #from transformers import AutoModelForCausalLM
 
 from ctransformers import AutoModelForCausalLM, AutoTokenizer
@@ -11,11 +10,14 @@ model_name = 'TheBloke/Llama-2-7B-Chat-GGML'
 st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
 
 @st.cache_resource()
-def ChatModel(temperature, top_p):
-    return AutoModelForCausalLM.from_pretrained(model_name)
-
+def ChatModel():
+    return AutoModelForCausalLM.from_pretrained(model_name,
+                                                model_type='llama',
+                                                temperature=0.6, 
+                                                top_p=0.9)
+chat_model =ChatModel(temperature, top_p)
 # Replicate Credentials
-
+"""
 with st.sidebar:
     st.title('🦙💬 Llama 2 Chatbot')
 
@@ -27,7 +29,7 @@ with st.sidebar:
     # max_length = st.sidebar.slider('max_length', min_value=64, max_value=4096, value=512, step=8)
     chat_model =ChatModel(temperature, top_p)
     # st.markdown('📖 Learn how to build this app in this [blog](#link-to-blog)!')
-
+"""
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
